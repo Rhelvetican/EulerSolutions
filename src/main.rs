@@ -1,5 +1,6 @@
 use utils::get_id;
 
+mod libs;
 mod solutions;
 
 use paste::paste;
@@ -9,7 +10,7 @@ mod utils;
 fn main() {
     let mut id = get_id();
     while id != 99999 {
-        match_id!(id, 1);
+        match_id!(id, 1, 2);
         id = get_id();
     }
 }

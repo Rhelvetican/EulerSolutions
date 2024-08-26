@@ -2,7 +2,7 @@
 macro_rules! match_id {
     ($obj:expr, $($id:literal), *) => {
         match $obj {
-            $($id => println!("{}", paste!(solutions::[<p $id>]::solution()))),*,
+            $($id => println!("The result of problem {} is: {}", $id, paste!(solutions::[<p $id>]::solution()))),*,
             _ => println!("Unimplemented problem."),
         }
     };
@@ -12,9 +12,11 @@ use std::io::{stdin, stdout, Write};
 
 fn input(msg: &str) -> String {
     print!("{}", msg);
+    stdout().flush().unwrap();
+
     let mut buf = String::new();
     stdin().read_line(&mut buf).unwrap();
-    stdout().flush().unwrap();
+
     buf
 }
 
